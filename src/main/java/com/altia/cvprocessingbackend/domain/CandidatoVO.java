@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CandidatoVO {
+  private String id;
   private TuplaEmailSitioWebVO clavePrimaria;
   private String nombre;
   private String telefono;

@@ -2,6 +2,7 @@ package com.altia.cvprocessingbackend.persistence.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,6 +14,7 @@ import java.util.List;
 @Document(collection = "candidates")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Candidato {
 
     @Id
@@ -37,12 +39,4 @@ public class Candidato {
     private List<Experiencia> experienciaLaboral;
     private List<Idioma> idiomas;
     private LocalDate fechaActualizacion;
-
-    @Data
-    @ToString(includeFieldNames = true)
-    @AllArgsConstructor
-    public static class TuplaEmailSitioWeb {
-        private String email;
-        private String sitioWeb;
-    }
 }

@@ -1,5 +1,6 @@
 package com.altia.cvprocessingbackend.controller;
 
+import com.altia.cvprocessingbackend.vo.CandidatoVO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,7 +13,7 @@ public class Controller {
     }
 
     @PostMapping("cv")
-    private String crearCV() {
-        return "CV creado correctamente";
+    private String crearCV(@RequestBody CandidatoVO candidatoVO) {
+        return candidatoVO.toString();
     }
 }

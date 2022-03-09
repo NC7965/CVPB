@@ -31,7 +31,7 @@ public class Runner implements CommandLineRunner {
 
         logger.info("Creando candidatos");
 
-        var candidatos = List.of(new Candidato(new TuplaEmailSitioWeb("nicolascuello@hotmail.com", "InfoJobs"),
+        /*var candidatos = List.of(new Candidato(new TuplaEmailSitioWeb("nicolascuello@hotmail.com", "InfoJobs"),
                 "Nicolas Cuello", "663487529", LocalDate.of(1998, 04, 20), "Elche", "B",
                 "Si", "Argentina", "Unión Europea, Argentina", false, "Empleado", "Software Developer",
                 "Software", "Mala", "Mala", "Hola soy nicolas cuello yy aqui estoy", List.of("Node JS", "Java"),
@@ -50,6 +50,6 @@ public class Runner implements CommandLineRunner {
         logger.info(("Finished"));
 
         Mono<Void> all = Mono.when(one, two, three);
-        all.block();
+        all.block();*/
     }
 }

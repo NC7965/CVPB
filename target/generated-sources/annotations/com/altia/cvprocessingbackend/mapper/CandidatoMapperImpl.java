@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-03-09T12:51:54+0100",
+    date = "2022-03-09T13:09:08+0100",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 11.0.11 (Oracle Corporation)"
 )
 @Component
@@ -31,6 +31,7 @@ public class CandidatoMapperImpl implements CandidatoMapper {
 
         CandidatoVO candidatoVO = new CandidatoVO();
 
+        candidatoVO.setId( map( e.getId() ) );
         candidatoVO.setClavePrimaria( tuplaEmailSitioWebToTuplaEmailSitioWebVO( e.getClavePrimaria() ) );
         candidatoVO.setNombre( e.getNombre() );
         candidatoVO.setTelefono( e.getTelefono() );
@@ -67,6 +68,7 @@ public class CandidatoMapperImpl implements CandidatoMapper {
 
         Candidato candidato = new Candidato();
 
+        candidato.setId( map( v.getId() ) );
         candidato.setClavePrimaria( tuplaEmailSitioWebVOToTuplaEmailSitioWeb( v.getClavePrimaria() ) );
         candidato.setNombre( v.getNombre() );
         candidato.setTelefono( v.getTelefono() );

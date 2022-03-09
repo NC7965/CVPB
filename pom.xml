@@ -12,7 +12,7 @@
     </parent>
     <groupId>proyectoId</groupId>
     <artifactId>CVProcessingBackend</artifactId>
-    <version>${CVProcessingBackend.version}</version>
+    <version>1.0.0</version>
     <properties>
         <java.version>11</java.version>
         <projectlombok.version>1.18.0</projectlombok.version>
@@ -24,7 +24,7 @@
             <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
         </dependency>
         <dependency>
-<<<<<<< HEAD
+
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
@@ -53,12 +53,7 @@
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
-=======
-            <groupId>proyectoId.utilities</groupId>
-            <artifactId>common-utilities</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
->>>>>>> d40a68e9469f1d85f901d35ea17078954a6ba941
+
         </dependency>
     </dependencies>
 

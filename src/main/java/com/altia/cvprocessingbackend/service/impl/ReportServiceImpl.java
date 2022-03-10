@@ -42,7 +42,9 @@ public class ReportServiceImpl implements ReportService {
                         Map<String,Object> parameters= new HashMap<>();
                         parameters.put("createdBy", "Hunters");
                         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,parameters,dataSource);
-                        JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Users\\tahir.farooq\\Desktop\\Spring-boot-reactive-webflux\\candidato.pdf");
+
+                        File filepdf = ResourceUtils.getFile("classpath:jasper/");
+                        JasperExportManager.exportReportToPdfFile(jasperPrint, filepdf.getAbsolutePath()+"\\candidato.pdf");
 
                         // JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Users\\tahir.farooq\\Desktop\\Spring-boot-reactive-webflux\\candidato.pdf");
 

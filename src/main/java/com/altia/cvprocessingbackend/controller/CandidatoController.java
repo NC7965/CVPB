@@ -15,6 +15,7 @@ import java.io.FileNotFoundException;
 @RestController
 @RequestMapping("/candidatos")
 @Slf4j
+@CrossOrigin("*")
 public class CandidatoController {
 
     @Autowired

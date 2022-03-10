@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d78b4477-2e23-4c4a-8f38-b3f91e0ec801" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/domain/CandidatoVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/domain/CandidatoVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/persistence/model/Candidato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/persistence/model/Candidato.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/persistence/repository/CandidatoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/persistence/repository/CandidatoRepository.java" afterDir="false" />
@@ -15,14 +19,15 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/service/impl/ReportServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/service/impl/ReportServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/jasper/candidates.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jasper/candidates.jrxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/altia/cvprocessingbackend/mapper/CandidatoMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/altia/cvprocessingbackend/mapper/CandidatoMapperImpl.java" afterDir="false" />
+=======
+>>>>>>> a30a2f8046df6ec751a129d558fdab3d56a78b47
     </list>
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -131,6 +136,8 @@
       </file>
     </leaf>
   </component>
+=======
+>>>>>>> a30a2f8046df6ec751a129d558fdab3d56a78b47
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -181,12 +188,8 @@
       </list>
     </option>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
@@ -210,6 +213,7 @@
     <option name="width" value="1279" />
     <option name="height" value="671" />
   </component>
+  <component name="ProjectId" id="26C7BaR2cuQDRBrPiCWbAfnLUJN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -340,6 +344,10 @@
       </pane>
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -347,6 +355,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -361,19 +370,20 @@
       <recent name="C:\proyectos\Arquitectura Empresarial\cv scrapping\desarrollo\CVPB\src\main\java\com\altia\cvprocessingbackend\domain" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.CVProcessingBackendApp">
+    <configuration name="CVProcessingBackendApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.altia.cvprocessingbackend.CVProcessingBackendApp" />
+      <module name="CVPB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.altia.cvprocessingbackend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CVProcessingBackendApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="CVProcessingBackend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.altia.cvprocessingbackend.CVProcessingBackendApp" />
@@ -381,7 +391,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CVProcessingBackendApp" />
+      </list>
+    </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>

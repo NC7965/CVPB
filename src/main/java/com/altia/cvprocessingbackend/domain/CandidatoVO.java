@@ -1,5 +1,7 @@
 package com.altia.cvprocessingbackend.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.time.LocalDate;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -9,11 +11,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CandidatoVO {
   private String id;
   private TuplaEmailSitioWebVO clavePrimaria;
   private String nombre;
   private String telefono;
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
   private LocalDate fechaNacimiento;
   private String ciudadResidencia;
   private String carnetConducir;

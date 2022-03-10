@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-03-10T12:34:58+0100",
-    comments = "version: 1.3.0.Final, compiler: javac, environment: Java 11.0.14 (Oracle Corporation)"
+    date = "2022-03-10T12:46:15+0100",
+    comments = "version: 1.3.0.Final, compiler: javac, environment: Java 11.0.13 (Amazon.com Inc.)"
 )
 @Component
 public class CandidatoMapperImpl implements CandidatoMapper {
@@ -174,8 +174,7 @@ public class CandidatoMapperImpl implements CandidatoMapper {
 
         experienciaVO.setCargo( experiencia.getCargo() );
         experienciaVO.setEmpresa( experiencia.getEmpresa() );
-        experienciaVO.setFechaInicio( experiencia.getFechaInicio() );
-        experienciaVO.setFechaFin( experiencia.getFechaFin() );
+        experienciaVO.setFechasYDuracion( experiencia.getFechasYDuracion() );
         experienciaVO.setSalario( experiencia.getSalario() );
         experienciaVO.setNivel( experiencia.getNivel() );
 
@@ -271,8 +270,7 @@ public class CandidatoMapperImpl implements CandidatoMapper {
 
         experiencia.setCargo( experienciaVO.getCargo() );
         experiencia.setEmpresa( experienciaVO.getEmpresa() );
-        experiencia.setFechaInicio( experienciaVO.getFechaInicio() );
-        experiencia.setFechaFin( experienciaVO.getFechaFin() );
+        experiencia.setFechasYDuracion( experienciaVO.getFechasYDuracion() );
         experiencia.setSalario( experienciaVO.getSalario() );
         experiencia.setNivel( experienciaVO.getNivel() );
 

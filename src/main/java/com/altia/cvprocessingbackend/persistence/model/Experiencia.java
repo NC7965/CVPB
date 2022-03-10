@@ -13,8 +13,7 @@ public class Experiencia {
 
     private String cargo;
     private String empresa;
-    private LocalDate fechaInicio;
-    private LocalDate fechaFin;
+    private String fechasYDuracion;
     private String salario;
     private String nivel;
 }

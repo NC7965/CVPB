@@ -5,19 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d78b4477-2e23-4c4a-8f38-b3f91e0ec801" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/controller/CandidatoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/controller/CandidatoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/persistence/repository/CandidatoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/persistence/repository/CandidatoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CVProcessingBackend-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/CVProcessingBackend-1.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CVProcessingBackend-1.0.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/CVProcessingBackend-1.0.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/CVProcessingBackend.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/controller/CandidatoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/controller/CandidatoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/persistence/repository/CandidatoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/persistence/repository/CandidatoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/domain/ExperienciaVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/domain/ExperienciaVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/persistence/model/Experiencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/persistence/model/Experiencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/domain/ExperienciaVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/domain/ExperienciaVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/mapper/CandidatoMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/mapper/CandidatoMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/persistence/model/Experiencia.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/persistence/model/Experiencia.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/altia/cvprocessingbackend/mapper/CandidatoMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/altia/cvprocessingbackend/mapper/CandidatoMapperImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,6 +221,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CVProcessingBackendApp (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="CVPB" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.altia.cvprocessingbackend.CVProcessingBackendApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CVProcessingBackendApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="CVProcessingBackend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.altia.cvprocessingbackend.CVProcessingBackendApp" />
@@ -290,9 +293,6 @@
       <window_info anchor="right" id="Bean Validation" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">

@@ -1,127 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d78b4477-2e23-4c4a-8f38-b3f91e0ec801" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/domain/CandidatoVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/domain/CandidatoVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/domain/CandidatoVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/domain/CandidatoVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/controller/CandidatoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/controller/CandidatoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/persistence/repository/CandidatoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/persistence/repository/CandidatoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CVProcessingBackend-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/CVProcessingBackend-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CVProcessingBackend-1.0.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/CVProcessingBackend-1.0.0.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/CVProcessingBackend.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/controller/CandidatoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/controller/CandidatoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/persistence/repository/CandidatoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/altia/cvprocessingbackend/persistence/repository/CandidatoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/altia/cvprocessingbackend/mapper/CandidatoMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/altia/cvprocessingbackend/mapper/CandidatoMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/controller/CandidatoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/service/impl/CandidatoServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/CVProcessingBackendApp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/mapper/CandidatoMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="12" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/domain/CandidatoVO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/domain/ExperienciaVO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/altia/cvprocessingbackend/persistence/repository/CandidatoRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/bson/4.4.2/bson-4.4.2.jar!/org/bson/types/ObjectId.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="91" column="17" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -161,12 +67,8 @@
       </list>
     </option>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
@@ -190,6 +92,7 @@
     <option name="width" value="1279" />
     <option name="height" value="671" />
   </component>
+  <component name="ProjectId" id="26Byy2gZC36exdJ9ozaiOqPXCO9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -283,6 +186,10 @@
       </pane>
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -290,32 +197,34 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\proyectos\Arquitectura Empresarial\cv scrapping\desarrollo\CVPB\src\main\java\com\altia\cvprocessingbackend\domain" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.altia.cvprocessingbackend.domain" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\proyectos\Arquitectura Empresarial\cv scrapping\desarrollo\CVPB\src\main\java\com\altia\cvprocessingbackend\domain" />
+    </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.CVProcessingBackendApp">
+    <configuration name="CVProcessingBackendApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.altia.cvprocessingbackend.CVProcessingBackendApp" />
+      <module name="CVPB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.altia.cvprocessingbackend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CVProcessingBackendApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="CVProcessingBackend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.altia.cvprocessingbackend.CVProcessingBackendApp" />
@@ -323,7 +232,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CVProcessingBackendApp" />
+      </list>
+    </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>

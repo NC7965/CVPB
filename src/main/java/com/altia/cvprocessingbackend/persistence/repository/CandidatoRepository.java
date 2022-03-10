@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 @Repository
 public interface CandidatoRepository extends ReactiveCrudRepository<Candidato, ObjectId> {
 
-    @Query("{ $and:[{'clavePrimaria.email' : ?0}, {'clavePrimaria.sitioWeb': ?1} ]}")
+    @Query("{ $and:[{'email' : ?0}, {'sitioWeb': ?1} ]}")
     Mono<Candidato> findByEmail(String email, String platform);
 
 }

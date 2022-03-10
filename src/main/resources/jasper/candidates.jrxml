@@ -2,8 +2,8 @@
 <!-- Created with Jaspersoft Studio version 6.19.0.final using JasperReports Library version 6.19.0-646c68931cebf1a58bc65c4359d1f0ca223c5e94  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="caf5463d-2916-4825-8c45-9d843391a8a1">
 
-    <field name="clavePrimaria.email" class="java.lang.String"/>
-    <field name="clavePrimaria.sitioWeb" class="java.lang.String"/>
+    <field name="email" class="java.lang.String"/>
+    <field name="sitioWeb" class="java.lang.String"/>
     <field name="autonomo" class="java.lang.Boolean"/>
     <field name="carnetConducir" class="java.lang.String"/>
     <field name="categoriaPreferida" class="java.lang.String"/>
@@ -50,11 +50,11 @@
 
             <textField>
                 <reportElement x="80" y="80" width="170" height="30" uuid="ae5c8d7d-e639-49e6-8ef5-afd4bc3c6460"/>
-                <textFieldExpression><![CDATA[$F{clavePrimaria.email}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="220" y="0" width="100" height="30" uuid="816a6cb4-4a27-4969-bc9e-c6a9c2232141"/>
-                <textFieldExpression><![CDATA[$F{clavePrimaria.sitioWeb}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{sitioWeb}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="80" y="60" width="100" height="30" uuid="05202f82-c677-477d-834b-28d12907ef1d"/>

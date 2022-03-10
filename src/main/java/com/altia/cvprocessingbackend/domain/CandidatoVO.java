@@ -14,7 +14,8 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CandidatoVO {
   private String id;
-  private TuplaEmailSitioWebVO clavePrimaria;
+  private String email;
+  private String sitioWeb;
   private String nombre;
   private String telefono;
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")

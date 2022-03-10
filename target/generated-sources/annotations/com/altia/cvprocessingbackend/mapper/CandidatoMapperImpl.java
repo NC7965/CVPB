@@ -4,12 +4,10 @@ import com.altia.cvprocessingbackend.domain.CandidatoVO;
 import com.altia.cvprocessingbackend.domain.EstudioVO;
 import com.altia.cvprocessingbackend.domain.ExperienciaVO;
 import com.altia.cvprocessingbackend.domain.IdiomaVO;
-import com.altia.cvprocessingbackend.domain.TuplaEmailSitioWebVO;
 import com.altia.cvprocessingbackend.persistence.model.Candidato;
 import com.altia.cvprocessingbackend.persistence.model.Estudio;
 import com.altia.cvprocessingbackend.persistence.model.Experiencia;
 import com.altia.cvprocessingbackend.persistence.model.Idioma;
-import com.altia.cvprocessingbackend.persistence.model.TuplaEmailSitioWeb;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.processing.Generated;
@@ -17,7 +15,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-03-10T13:22:33+0100",
+    date = "2022-03-10T13:44:05+0100",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 11.0.11 (Oracle Corporation)"
 )
 @Component
@@ -32,7 +30,8 @@ public class CandidatoMapperImpl implements CandidatoMapper {
         CandidatoVO candidatoVO = new CandidatoVO();
 
         candidatoVO.setId( map( e.getId() ) );
-        candidatoVO.setClavePrimaria( tuplaEmailSitioWebToTuplaEmailSitioWebVO( e.getClavePrimaria() ) );
+        candidatoVO.setEmail( e.getEmail() );
+        candidatoVO.setSitioWeb( e.getSitioWeb() );
         candidatoVO.setNombre( e.getNombre() );
         candidatoVO.setTelefono( e.getTelefono() );
         candidatoVO.setFechaNacimiento( e.getFechaNacimiento() );
@@ -69,7 +68,8 @@ public class CandidatoMapperImpl implements CandidatoMapper {
         Candidato candidato = new Candidato();
 
         candidato.setId( map( v.getId() ) );
-        candidato.setClavePrimaria( tuplaEmailSitioWebVOToTuplaEmailSitioWeb( v.getClavePrimaria() ) );
+        candidato.setEmail( v.getEmail() );
+        candidato.setSitioWeb( v.getSitioWeb() );
         candidato.setNombre( v.getNombre() );
         candidato.setTelefono( v.getTelefono() );
         candidato.setFechaNacimiento( v.getFechaNacimiento() );
@@ -123,19 +123,6 @@ public class CandidatoMapperImpl implements CandidatoMapper {
         }
 
         return list;
-    }
-
-    protected TuplaEmailSitioWebVO tuplaEmailSitioWebToTuplaEmailSitioWebVO(TuplaEmailSitioWeb tuplaEmailSitioWeb) {
-        if ( tuplaEmailSitioWeb == null ) {
-            return null;
-        }
-
-        TuplaEmailSitioWebVO tuplaEmailSitioWebVO = new TuplaEmailSitioWebVO();
-
-        tuplaEmailSitioWebVO.setEmail( tuplaEmailSitioWeb.getEmail() );
-        tuplaEmailSitioWebVO.setSitioWeb( tuplaEmailSitioWeb.getSitioWeb() );
-
-        return tuplaEmailSitioWebVO;
     }
 
     protected EstudioVO estudioToEstudioVO(Estudio estudio) {
@@ -219,19 +206,6 @@ public class CandidatoMapperImpl implements CandidatoMapper {
         }
 
         return list1;
-    }
-
-    protected TuplaEmailSitioWeb tuplaEmailSitioWebVOToTuplaEmailSitioWeb(TuplaEmailSitioWebVO tuplaEmailSitioWebVO) {
-        if ( tuplaEmailSitioWebVO == null ) {
-            return null;
-        }
-
-        TuplaEmailSitioWeb tuplaEmailSitioWeb = new TuplaEmailSitioWeb();
-
-        tuplaEmailSitioWeb.setEmail( tuplaEmailSitioWebVO.getEmail() );
-        tuplaEmailSitioWeb.setSitioWeb( tuplaEmailSitioWebVO.getSitioWeb() );
-
-        return tuplaEmailSitioWeb;
     }
 
     protected Estudio estudioVOToEstudio(EstudioVO estudioVO) {

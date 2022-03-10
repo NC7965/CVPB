@@ -19,7 +19,8 @@ public class Candidato {
     @Id
     @Field(value = "_id")
     private ObjectId id;
-    private TuplaEmailSitioWeb clavePrimaria;
+    private String email;
+    private String sitioWeb;
     private String nombre;
     private String telefono;
     private LocalDate fechaNacimiento;

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 @Service
 public class CandidatoServiceImpl implements CandidatoService {
@@ -23,7 +24,7 @@ public class CandidatoServiceImpl implements CandidatoService {
   @Override
   public void saveCandidato(CandidatoVO candidatoVO) {
 
-    candidatoRepository.save(candidatoMapper.voToEntity(candidatoVO)).subscribe();
+    candidatoRepository.save(candidatoMapper.voToEntity(candidatoVO)).subscribeOn(Schedulers.newParallel("reporting-thread")).subscribe();
   }
 
   @Override

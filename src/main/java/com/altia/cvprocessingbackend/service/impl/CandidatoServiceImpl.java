@@ -41,36 +41,6 @@ public class CandidatoServiceImpl implements CandidatoService {
               candidatoRepository.save(candidatoMapper.voToEntity(candidatoVO))
                       .subscribeOn(Schedulers.newParallel("reporting-thread")).subscribe();
             });
-
-    //boolean exists = existsCandidato(candidatoVO).get();
-
-    /*if(!exists){
-      candidatoRepository.save(candidatoMapper.voToEntity(candidatoVO)).subscribeOn(Schedulers.newParallel("reporting-thread")).subscribe();
-    }*/
-    //candidatoRepository.save(candidatoMapper.voToEntity(candidatoVO)).subscribeOn(Schedulers.newParallel("reporting-thread")).subscribe();
-
-
-    /*if(!existsCandidato(candidatoVO).get()){
-      logger.info("Si existeee -> en saveCandidato!");
-      candidatoRepository.save(candidatoMapper.voToEntity(candidatoVO)).subscribeOn(Schedulers.newParallel("reporting-thread")).subscribe();
-    }
-    else if (existsCandidato(candidatoVO).get()){
-      logger.info("No existeee -> en saveCandidato!");
-      candidatoRepository.save(candidatoMapper.voToEntity(candidatoVO)).subscribeOn(Schedulers.newParallel("reporting-thread")).subscribe();
-
-    }*/
-    /*
-    existsCandidato(candidatoVO).map( value -> {
-        if(value){
-          logger.info("Si que existe -> en saveCandidato!");
-
-        }
-        else{
-          logger.info("No existe -> en saveCandidato!");
-          candidatoRepository.save(candidatoMapper.voToEntity(candidatoVO)).subscribeOn(Schedulers.newParallel("reporting-thread")).subscribe();
-        }
-        return "";
-    }).subscribeOn(Schedulers.boundedElastic()).subscribe();*/
   }
 
   @Override
@@ -83,23 +53,4 @@ public class CandidatoServiceImpl implements CandidatoService {
     return candidatoRepository.findAll().map(this.candidatoMapper::entityToVo);
   }
 
-  public AtomicBoolean existsCandidato(CandidatoVO candidatoVO){ //T if no exists & F when exists
-    logger.info("existeCandidato? "+ candidatoVO.getEmail() + " en el sitioweb: " + candidatoVO.getSitioWeb());
-
-    //Candidato candidato = candidatoRepository.findByEmailCandidato(candidatoVO.getEmail(), candidatoVO.getSitioWeb());
-    AtomicBoolean empty = new AtomicBoolean();
-    candidatoRepository.findByEmail(candidatoVO.getEmail(), candidatoVO.getSitioWeb())
-            .subscribeOn(Schedulers.boundedElastic())
-            .subscribe(candidato -> {
-              empty.set(candidato==null);
-              if(candidato!=null){
-                candidatoRepository.delete(candidato).subscribeOn(Schedulers.newParallel("reporting-thread")).subscribe();
-              }
-              candidatoRepository.save(candidatoMapper.voToEntity(candidatoVO)).subscribeOn(Schedulers.newParallel("reporting-thread")).subscribe();
-
-            });
-    logger.info("value de empty: "+empty);
-
-    return empty;
-  }
 }

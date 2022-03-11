@@ -117,7 +117,7 @@
             </textField>
             <textField>
                 <reportElement x="140" y="80" width="380" height="119" uuid="2cef0001-076a-4928-81c0-b8ee4141fb4b"/>
-                <textFieldExpression><![CDATA[$F{estudios}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{estudios}.toString().substring(1,$F{estudios}.toString().length()-1 ).replace("\"", "").replace("[", "").replace("]", "").replace(",", "; ").replace("{", "").replace("}", "").replace("titulo=", "\n").replace("Estudio","\n").replace("(", "").replace(")", "")]]></textFieldExpression>
             </textField>
         </band>
     </columnHeader>

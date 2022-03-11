@@ -40,8 +40,8 @@ public class ReportServiceImpl implements ReportService {
           try {
 
             File template = ResourceUtils.getFile("classpath:jasper/candidates.jrxml");
-            JasperReport jasperReport = JasperCompileManager.compileReport(template.getAbsolutePath());
             System.out.println("file.getAbsolutePath(): " + template.getAbsolutePath());
+            JasperReport jasperReport = JasperCompileManager.compileReport(template.getAbsolutePath());
 
             JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(
                 Arrays.asList(candidato));

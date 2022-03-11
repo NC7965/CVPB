@@ -1,10 +1,6 @@
 package com.altia.cvprocessingbackend.runner;
 
-import com.altia.cvprocessingbackend.persistence.model.Candidato;
-import com.altia.cvprocessingbackend.persistence.model.TuplaEmailSitioWeb;
-import com.altia.cvprocessingbackend.persistence.model.Estudio;
-import com.altia.cvprocessingbackend.persistence.model.Experiencia;
-import com.altia.cvprocessingbackend.persistence.model.Idioma;
+
 import com.altia.cvprocessingbackend.persistence.repository.CandidatoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -37,4 +37,5 @@ public class CandidatoVO {
   private List<ExperienciaVO> experienciaLaboral;
   private List<IdiomaVO> idiomas;
   private LocalDate fechaActualizacion;
+
 }

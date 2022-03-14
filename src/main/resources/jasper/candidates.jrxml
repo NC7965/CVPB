@@ -128,7 +128,7 @@
                 <text><![CDATA[Idiomas: ]]></text>
             </staticText>
             <textField>
-                <reportElement x="140" y="197" width="400" height="233" uuid="cab08f15-16dd-4b9f-b114-df2dee211b3f"/>
+                <reportElement x="140" y="200" width="400" height="233" uuid="cab08f15-16dd-4b9f-b114-df2dee211b3f"/>
                 <textElement textAlignment="Justified"/>
                 <textFieldExpression><![CDATA[$F{experienciaLaboral}.toString().substring(1,$F{experienciaLaboral}.toString().length()-2 ).replace("\"","").replace("[","").replace("]","").replace("), Experiencia","\n\nExperiencia").replace("Experiencia(cargo=","").replace("="," ").replace(", empresa"," en la empresa").replace("null","no disponible").replace(", fechasYDuracion",". Periodo:").replace(", salario",". Salario:").replace(", nivel",". Nivel:").replace(", descripcion",". Descripcion:").replace(", habilidades",". Habilidades:")]]></textFieldExpression>
             </textField>
@@ -138,7 +138,7 @@
                 <textFieldExpression><![CDATA[$F{ciudadResidencia}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="140" y="40" width="400" height="50" uuid="2f5a3642-84d6-408d-ac3e-297b28b81316"/>
+                <reportElement x="137" y="40" width="403" height="50" uuid="2f5a3642-84d6-408d-ac3e-297b28b81316"/>
                 <textElement textAlignment="Justified"/>
                 <textFieldExpression><![CDATA[$F{conocimientos}.toString().substring(1,$F{conocimientos}.toString().length()-1 )]]></textFieldExpression>
             </textField>

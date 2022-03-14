@@ -40,14 +40,6 @@
                 <imageExpression><![CDATA["https://www.exis-ti.com/themes/custom/rhythm_sub/logotipo.png"]]></imageExpression>
             </image>
             <staticText>
-                <reportElement x="30" y="60" width="100" height="30" uuid="9ae1af89-bb4b-4529-abfe-c9859f119daf"/>
-                <text><![CDATA[Nombre: ]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="30" y="80" width="100" height="30" uuid="0b5e736b-e0e2-4bd9-bfd7-625f2dc18329"/>
-                <text><![CDATA[Email: ]]></text>
-            </staticText>
-            <staticText>
                 <reportElement x="30" y="120" width="100" height="30" uuid="000337cd-0550-493b-839f-c771f9fc04cc"/>
                 <text><![CDATA[Número de teléfono: ]]></text>
             </staticText>
@@ -55,48 +47,56 @@
                 <reportElement x="30" y="100" width="100" height="30" uuid="0840a260-772c-476f-971d-a58586f0283e"/>
                 <text><![CDATA[Fecha de nacimiento: ]]></text>
             </staticText>
-            <staticText>
-                <reportElement x="30" y="20" width="100" height="30" uuid="7c606543-7784-4215-a578-92fe84bac603"/>
-                <text><![CDATA[Informe extraído de]]></text>
-            </staticText>
             <textField>
-                <reportElement x="80" y="80" width="460" height="30" uuid="ae5c8d7d-e639-49e6-8ef5-afd4bc3c6460"/>
-                <textElement textAlignment="Justified"/>
+                <reportElement x="30" y="50" width="360" height="30" uuid="ae5c8d7d-e639-49e6-8ef5-afd4bc3c6460"/>
+                <textElement textAlignment="Justified">
+                    <font size="12"/>
+                </textElement>
                 <textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="120" y="20" width="155" height="30" uuid="816a6cb4-4a27-4969-bc9e-c6a9c2232141"/>
-                <textElement textAlignment="Justified"/>
-                <textFieldExpression><![CDATA[$F{sitioWeb}]]></textFieldExpression>
             </textField>
 
             <textField>
-                <reportElement x="80" y="60" width="310" height="30" uuid="05202f82-c677-477d-834b-28d12907ef1d"/>
-                <textElement textAlignment="Justified"/>
+                <reportElement x="30" y="31" width="310" height="30" uuid="05202f82-c677-477d-834b-28d12907ef1d"/>
+                <textElement textAlignment="Justified">
+                    <font size="17"/>
+                </textElement>
                 <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
             </textField>
+
             <textField isBlankWhenNull="true">
                 <reportElement x="140" y="100" width="260" height="30" uuid="eba4453f-4f69-4f60-8371-41b71c6d5330"/>
                 <textElement textAlignment="Justified"/>
                 <textFieldExpression><![CDATA[$F{fechaNacimiento}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="140" y="120" width="260" height="30" uuid="deab3327-d8f3-401e-bc19-5e3d6a406ba6"/>
+                <reportElement x="140" y="120" width="260" height="20" uuid="deab3327-d8f3-401e-bc19-5e3d6a406ba6"/>
                 <textElement textAlignment="Justified"/>
                 <textFieldExpression><![CDATA[$F{telefono}.toString().substring(0,$F{telefono}.toString().length()-13 )]]></textFieldExpression>
             </textField>
+            <rectangle>
+                <reportElement x="30" y="30" width="360" height="1" uuid="922fe2bf-13b4-420f-9475-e1fb72c8fec0"/>
+                <graphicElement>
+                    <pen lineStyle="Solid" lineColor="rgba(5, 5, 5, 0.95686275)"/>
+                </graphicElement>
+            </rectangle>
+            <rectangle>
+                <reportElement x="30" y="70" width="360" height="1" uuid="139ac0ab-44b8-419f-b1a8-c2c3d17ed5cb"/>
+                <graphicElement>
+                    <pen lineStyle="Solid" lineColor="rgba(5, 5, 5, 0.95686275)"/>
+                </graphicElement>
+            </rectangle>
         </band>
     </title>
     <pageHeader>
         <band height="32" splitType="Prevent">
             <staticText>
-                <reportElement x="30" y="0" width="100" height="30" uuid="2a1f96fb-1d07-4445-88d8-83689e57bcd4">
+                <reportElement x="30" y="-10" width="100" height="20" uuid="2a1f96fb-1d07-4445-88d8-83689e57bcd4">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6346e015-1e7c-4050-8fdf-7ea1825220f1"/>
                 </reportElement>
                 <text><![CDATA[Carnet de conducir: ]]></text>
             </staticText>
             <textField>
-                <reportElement x="140" y="0" width="400" height="30" uuid="a894b482-1814-4486-9484-19450d48c695"/>
+                <reportElement x="140" y="-10" width="260" height="20" uuid="a894b482-1814-4486-9484-19450d48c695"/>
                 <textElement textAlignment="Justified"/>
                 <textFieldExpression><![CDATA[$F{carnetConducir}]]></textFieldExpression>
             </textField>
@@ -106,53 +106,53 @@
         <band height="484" splitType="Stretch">
             <property name="com.jaspersoft.studio.unit.height" value="px"/>
             <staticText>
-                <reportElement x="30" y="0" width="100" height="30" uuid="ef6e5ada-6557-4dab-beb5-f8c6297b2ee3"/>
+                <reportElement x="30" y="-20" width="100" height="20" uuid="ef6e5ada-6557-4dab-beb5-f8c6297b2ee3"/>
                 <text><![CDATA[Ciudad de residencia: ]]></text>
             </staticText>
             <staticText>
-                <reportElement x="30" y="40" width="100" height="30" uuid="fa240dd7-3028-49ed-a8b2-091327eb415e"/>
-                <text><![CDATA[Conocimientos: ]]></text>
+                <reportElement x="30" y="0" width="100" height="30" uuid="fa240dd7-3028-49ed-a8b2-091327eb415e"/>
+                <text><![CDATA[Habilidades: ]]></text>
             </staticText>
             <staticText>
-                <reportElement x="30" y="100" width="100" height="30" uuid="38d16bd8-2dc7-436b-8dd3-631028bcd9e4">
+                <reportElement x="30" y="60" width="100" height="30" uuid="38d16bd8-2dc7-436b-8dd3-631028bcd9e4">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2e37a2cb-2597-403b-9f4f-73ad64832716"/>
                 </reportElement>
                 <text><![CDATA[Estudios: ]]></text>
             </staticText>
             <staticText>
-                <reportElement x="30" y="200" width="100" height="30" uuid="8c276b18-c55d-44d6-86ef-a798e44aac19"/>
+                <reportElement x="30" y="160" width="100" height="30" uuid="8c276b18-c55d-44d6-86ef-a798e44aac19"/>
                 <text><![CDATA[Experiencia: ]]></text>
             </staticText>
-            <staticText>
-                <reportElement x="30" y="440" width="100" height="30" uuid="56b6ee3e-cccd-4a45-be62-63629fed3fd3"/>
-                <text><![CDATA[Idiomas: ]]></text>
-            </staticText>
             <textField>
-                <reportElement x="140" y="200" width="400" height="233" uuid="cab08f15-16dd-4b9f-b114-df2dee211b3f"/>
+                <reportElement x="141" y="160" width="400" height="220" uuid="cab08f15-16dd-4b9f-b114-df2dee211b3f"/>
                 <textElement textAlignment="Justified"/>
-                <textFieldExpression><![CDATA[$F{experienciaLaboral}.toString().substring(1,$F{experienciaLaboral}.toString().length()-2 ).replace("\"","").replace("[","").replace("]","").replace("), Experiencia","\n\nExperiencia").replace("Experiencia(cargo=","").replace("="," ").replace(", empresa"," en la empresa").replace("null","no disponible").replace(", fechasYDuracion",". Periodo:").replace(", salario",". Salario:").replace(", nivel",". Nivel:").replace(", descripcion",". Descripcion:").replace(", habilidades",". Habilidades:")]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{experienciaLaboral}.toString().substring(1,$F{experienciaLaboral}.toString().length()-2 ).replace("\"","").replace("[","").replace("]","").replace("), Experiencia","\n\nExperiencia").replace("Experiencia(cargo=","").replace("="," ").replace(", empresa"," en la empresa").replace("null","no disponible").replace(", fechasYDuracion",".\nPeriodo:").replace(", salario",". Salario:").replace(", nivel",".\nNivel:").replace(", descripcion",".\nDescripcion:").replace(", habilidades",".\nHabilidades:")]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="140" y="0" width="400" height="30" uuid="93696c6f-a322-4e4d-9efa-9c6e1614d592"/>
+                <reportElement x="140" y="12" width="390" height="20" uuid="93696c6f-a322-4e4d-9efa-9c6e1614d592"/>
                 <textElement textAlignment="Justified"/>
                 <textFieldExpression><![CDATA[$F{ciudadResidencia}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="137" y="40" width="403" height="50" uuid="2f5a3642-84d6-408d-ac3e-297b28b81316"/>
+                <reportElement x="137" y="0" width="403" height="60" uuid="2f5a3642-84d6-408d-ac3e-297b28b81316"/>
                 <textElement textAlignment="Justified"/>
                 <textFieldExpression><![CDATA[$F{conocimientos}.toString().substring(1,$F{conocimientos}.toString().length()-1 )]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="140" y="100" width="400" height="90" uuid="2cef0001-076a-4928-81c0-b8ee4141fb4b"/>
+                <reportElement x="141" y="60" width="400" height="90" uuid="2cef0001-076a-4928-81c0-b8ee4141fb4b"/>
                 <textElement textAlignment="Justified"/>
                 <textFieldExpression><![CDATA[$F{estudios}.toString().substring(1,$F{estudios}.toString().length()-1 ).replace (", {", "\n\n").replace("{", "").replace("}", "").replace("\"", "").replace("(", "").replace(")", "").replace(", Estudio","\n\n").replace("Estudio","").replace("=",":").replace("titulo:","Título ").replace(", especialidad:", ". Especialidad en ").replace(", institucion:",". Institución: ")]]></textFieldExpression>
             </textField>
+            <staticText>
+                <reportElement x="30" y="454" width="100" height="30" uuid="56b6ee3e-cccd-4a45-be62-63629fed3fd3"/>
+                <text><![CDATA[Idiomas: ]]></text>
+            </staticText>
         </band>
     </columnHeader>
     <columnFooter>
         <band height="82" splitType="Stretch">
             <textField isBlankWhenNull="true">
-                <reportElement x="140" y="-44" width="400" height="104" uuid="8fd60bc2-daf5-451b-b397-27f68a31323b"/>
+                <reportElement x="141" y="-30" width="400" height="106" uuid="8fd60bc2-daf5-451b-b397-27f68a31323b"/>
                 <textElement textAlignment="Justified"/>
                 <textFieldExpression><![CDATA[$F{idiomas}.toString().substring(1,$F{idiomas}.toString().length()-2 ).replace("Idioma(","").replace(")","").replace(", idioma","\n").replace("idioma=","").replace("=","").replace(", nivel",". Nivel: ").replace(", comentario",". Comentario: ").replace("Comentario: null","Comentario: Ningún comentario.").replace("null","No disponible")]]></textFieldExpression>
             </textField>
@@ -161,8 +161,7 @@
     <pageFooter>
         <band height="54" splitType="Stretch">
             <textField>
-                <reportElement x="480" y="24" width="70" height="30"  uuid="7ea6cc9a-2255-4011-859b-67f3420802ba"/>
-                <textElement textAlignment="Justified"/>
+                <reportElement x="510" y="10" width="30" height="21" uuid="7ea6cc9a-2255-4011-859b-67f3420802ba"/>
                 <textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
             </textField>
             <textField textAdjust="ScaleFont" pattern="MMMMM dd, yyyy">
@@ -171,11 +170,19 @@
                 <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
             </textField>
             <rectangle>
-                <reportElement x="164" y="27" width="226" height="1" uuid="c7e90efd-eb06-43aa-b516-d4373bc76336"/>
+                <reportElement x="10" y="30" width="520" height="1" uuid="c7e90efd-eb06-43aa-b516-d4373bc76336"/>
                 <graphicElement>
                     <pen lineStyle="Solid" lineColor="rgba(5, 5, 5, 0.95686275)"/>
                 </graphicElement>
             </rectangle>
+            <staticText>
+                <reportElement x="10" y="10" width="100" height="30" uuid="7c606543-7784-4215-a578-92fe84bac603"/>
+                <text><![CDATA[Informe extraído de]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="100" y="10" width="155" height="30" uuid="cfe3f209-a041-4b32-9be9-b39aabab61db"/>
+                <textFieldExpression><![CDATA[$F{sitioWeb}]]></textFieldExpression>
+            </textField>
         </band>
     </pageFooter>
 </jasperReport>

@@ -38,6 +38,13 @@ public class CandidatoController {
     private CandidatoService candidatoService;
 
     /**
+     * Rol
+     */
+    public enum Role {
+        ROLE_USER, ROLE_ADMIN
+    }
+
+    /**
      * El servicio de Reportes
      */
     @Autowired
@@ -74,8 +81,6 @@ public class CandidatoController {
             }
             rd.close();
             status = conexion.getResponseCode();
-            log.info("STATUS CODE: "+status);
-
             log.info("Info: "+resultado.toString());
         } catch (IOException e) {
             e.printStackTrace();
@@ -88,14 +93,14 @@ public class CandidatoController {
      * @param candidatoVO
      * @return "OK" o Error:404 en función de si el token es valido o no en Dédalo.
      */
-    @PostMapping("/")
-    public String  crearCV(@RequestBody CandidatoVO candidatoVO, @RequestHeader ("X-Redmine-API-Key") String token) {
+    @PostMapping("/dedalo")
+    public String SaveDedalo(@RequestBody CandidatoVO candidatoVO, @RequestHeader ("X-Redmine-API-Key") String token) throws JRException, FileNotFoundException {
         log.info("request body recibido en hebra {}",Thread.currentThread().getName());
-        log.info("token: "+token);
         int status = generarPeticionDedalo(token);
         if(status==STATUS_CODE_OK){
             candidatoService.saveCandidato(candidatoVO);
-            return "Almacenado correcto";
+            Mono<Resource> report = reportService.exportReport(candidatoVO.getEmail(),candidatoVO.getSitioWeb());
+            return "OK";
         }
         else{
             log.info("No tienes permisos!");
@@ -103,6 +108,20 @@ public class CandidatoController {
                     HttpStatus.NOT_FOUND, "Token not found."
             );
         }
+    }
+
+
+
+    /**
+     * Crea un CV y lo almacena
+     * @param candidatoVO
+     * @return Almacena el candidato en la base de datos.
+     */
+    @PostMapping("/")
+    public String  crearCV(@RequestBody CandidatoVO candidatoVO) {
+        log.info("request body recibido en hebra {}",Thread.currentThread().getName());
+        candidatoService.saveCandidato(candidatoVO);
+        return "Almacenado correcto";
     }
 
     /**

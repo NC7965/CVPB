@@ -1,24 +1,25 @@
 package com.altia.cvprocessingbackend.controller;
 
 import com.altia.cvprocessingbackend.domain.CandidatoVO;
-import com.altia.cvprocessingbackend.runner.Runner;
 import com.altia.cvprocessingbackend.service.CandidatoService;
 import com.altia.cvprocessingbackend.service.ReportService;
-import java.io.ByteArrayInputStream;
+
+import java.io.*;
+
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jasperreports.engine.JRException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.io.FileNotFoundException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * La clase CandidatoController
@@ -29,6 +30,7 @@ import java.io.FileNotFoundException;
 @CrossOrigin("*")
 public class CandidatoController {
 
+    public int STATUS_CODE_OK = 200;
     /**
      * El servicio de Candidato
      */
@@ -50,18 +52,57 @@ public class CandidatoController {
     public Mono<CandidatoVO> getCandidato(@PathVariable("id") String id) {
         return candidatoService.findById(id);
     }
+    /**
+     *
+     * @param token de dédalo
+     * @return status devuelve el código de respuesta para la petición de guardado en Dédalo.
+     */
+    public int generarPeticionDedalo(String token){
+        int status = 0;
+        try {
+            StringBuilder resultado = new StringBuilder();
+            URL url = new URL("https://dedalo.altia.es/dedalo/my/account.json");
+            HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
+            conexion.setRequestMethod("GET");
+            conexion.setRequestProperty("Content-Type", "application/json");
+            conexion.setRequestProperty("X-Redmine-API-Key", token);
+            conexion.setInstanceFollowRedirects(false);
+            BufferedReader rd = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
+            String linea;
+            while ((linea = rd.readLine()) != null) {
+                resultado.append(linea);
+            }
+            rd.close();
+            status = conexion.getResponseCode();
+            log.info("STATUS CODE: "+status);
+
+            log.info("Info: "+resultado.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
 
     /**
      * Crea un CV y lo almacena
      * @param candidatoVO
-     * @return
+     * @return "OK" o Error:404 en función de si el token es valido o no en Dédalo.
      */
     @PostMapping("/")
-    public String crearCV(@RequestBody CandidatoVO candidatoVO) {
+    public String  crearCV(@RequestBody CandidatoVO candidatoVO, @RequestHeader ("X-Redmine-API-Key") String token) {
         log.info("request body recibido en hebra {}",Thread.currentThread().getName());
-
-        candidatoService.saveCandidato(candidatoVO);
-        return "Almacenado correcto";
+        log.info("token: "+token);
+        int status = generarPeticionDedalo(token);
+        if(status==STATUS_CODE_OK){
+            candidatoService.saveCandidato(candidatoVO);
+            return "Almacenado correcto";
+        }
+        else{
+            log.info("No tienes permisos!");
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Token not found."
+            );
+        }
     }
 
     /**
@@ -72,7 +113,6 @@ public class CandidatoController {
     public Flux<CandidatoVO> findAll(){
         return candidatoService.findAll();
     }
-
     /**
      *
      * @param email

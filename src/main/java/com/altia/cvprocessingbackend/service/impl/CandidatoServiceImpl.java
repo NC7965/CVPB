@@ -20,16 +20,29 @@ import reactor.core.scheduler.Schedulers;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * La clase CandidatoServiceImpl
+ */
 @Service
 public class CandidatoServiceImpl implements CandidatoService {
   private static final Logger logger = LoggerFactory.getLogger(Runner.class);
 
+  /**
+   * El Mapper de Candidato
+   */
   @Autowired
   private CandidatoMapper candidatoMapper;
 
+  /**
+   * El repositorio de Candidato
+   */
   @Autowired
   private CandidatoRepository candidatoRepository;
 
+  /**
+   * Guarda el Candidato
+   * @param candidatoVO
+   */
   @Override
   public void saveCandidato(CandidatoVO candidatoVO) {
 
@@ -43,11 +56,20 @@ public class CandidatoServiceImpl implements CandidatoService {
             });
   }
 
+  /**
+   * Busca Candidato por Id
+   * @param id
+   * @return el CandidatoVO(Mono)
+   */
   @Override
   public Mono<CandidatoVO> findById(String id) {
     return candidatoRepository.findById(new ObjectId(id)).map(this.candidatoMapper::entityToVo);
   }
 
+  /**
+   * Obtiene todos los Candidatos
+   * @return Los Candidatos(Flux)
+   */
   @Override
   public Flux<CandidatoVO> findAll() {
     return candidatoRepository.findAll().map(this.candidatoMapper::entityToVo);

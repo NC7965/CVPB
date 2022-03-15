@@ -21,6 +21,9 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * La Clase ReportServiceImpl
+ */
 @Service
 public class ReportServiceImpl implements ReportService {
 
@@ -29,7 +32,14 @@ public class ReportServiceImpl implements ReportService {
   @Autowired
   private CandidatoRepository candidatoRepository;
 
-
+    /**
+     * Exportar reporte
+     * @param email
+     * @param platform
+     * @return Fichero CV
+     * @throws FileNotFoundException
+     * @throws JRException
+     */
   public Mono<Resource> exportReport(String email, String platform)
       throws FileNotFoundException, JRException {
 

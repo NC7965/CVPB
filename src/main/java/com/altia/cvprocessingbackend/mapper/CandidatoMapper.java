@@ -7,6 +7,9 @@ import java.util.Optional;
 import org.bson.types.ObjectId;
 import org.mapstruct.Mapper;
 
+/**
+ * La interfaz CandidatoMapper
+ */
 @Mapper(componentModel = "spring")
 public interface CandidatoMapper extends BaseMapper<Candidato, CandidatoVO>{
 

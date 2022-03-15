@@ -20,25 +20,42 @@ import reactor.core.publisher.Mono;
 
 import java.io.FileNotFoundException;
 
+/**
+ * La clase CandidatoController
+ */
 @RestController
 @RequestMapping("/candidatos")
 @Slf4j
 @CrossOrigin("*")
 public class CandidatoController {
 
-
+    /**
+     * El servicio de Candidato
+     */
     @Autowired
     private CandidatoService candidatoService;
 
+    /**
+     * El servicio de Reportes
+     */
     @Autowired
     private ReportService reportService;
 
-
+    /**
+     * Busca por id un candidato y lo devuelve
+     * @param id
+     * @return El CandidatoVO(Mono)
+     */
     @GetMapping("/{id}")
     public Mono<CandidatoVO> getCandidato(@PathVariable("id") String id) {
         return candidatoService.findById(id);
     }
 
+    /**
+     * Crea un CV y lo almacena
+     * @param candidatoVO
+     * @return
+     */
     @PostMapping("/")
     public String crearCV(@RequestBody CandidatoVO candidatoVO) {
         log.info("request body recibido en hebra {}",Thread.currentThread().getName());
@@ -47,12 +64,25 @@ public class CandidatoController {
         return "Almacenado correcto";
     }
 
+    /**
+     * Busca y devuelve todos los candidatos
+     * @return El/los CandidatoVO(Flux)
+     */
     @GetMapping("")
     public Flux<CandidatoVO> findAll(){
         return candidatoService.findAll();
     }
 
-
+    /**
+     *
+     * @param email
+     * @param platform
+     * @param response
+     * @return fichero CV
+     * @throws JRException
+     * @throws FileNotFoundException
+     * @throws JRException
+     */
     @GetMapping(value = "/report" ,  produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     @ResponseBody
     public Mono<Resource> exportReport (@RequestParam String email, @RequestParam String platform, ServerHttpResponse response) throws JRException, FileNotFoundException, JRException {

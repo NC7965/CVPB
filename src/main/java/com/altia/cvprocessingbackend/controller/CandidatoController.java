@@ -89,11 +89,11 @@ public class CandidatoController {
     }
 
     /**
-     * Crea un CV y lo almacena
+     * Crea un CV y llama a dedalo
      * @param candidatoVO
      * @return "OK" o Error:404 en función de si el token es valido o no en Dédalo.
      */
-    @PostMapping("/dedalo")
+    @PostMapping("/candidatura")
     public String SaveDedalo(@RequestBody CandidatoVO candidatoVO, @RequestHeader ("X-Redmine-API-Key") String token) throws JRException, FileNotFoundException {
         log.info("request body recibido en hebra {}",Thread.currentThread().getName());
         int status = generarPeticionDedalo(token);

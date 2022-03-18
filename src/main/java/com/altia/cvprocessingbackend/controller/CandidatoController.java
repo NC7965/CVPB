@@ -13,13 +13,11 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.reactive.ServerHttpResponse;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 /**
  * La clase CandidatoController
@@ -38,13 +36,6 @@ public class CandidatoController {
     private CandidatoService candidatoService;
 
     /**
-     * Rol
-     */
-    public enum Role {
-        ROLE_USER, ROLE_ADMIN
-    }
-
-    /**
      * El servicio de Reportes
      */
     @Autowired
@@ -59,58 +50,20 @@ public class CandidatoController {
     public Mono<CandidatoVO> getCandidato(@PathVariable("id") String id) {
         return candidatoService.findById(id);
     }
-    /**
-     *
-     * @param token de dédalo
-     * @return status devuelve el código de respuesta para la petición de guardado en Dédalo.
-     */
-    public int generarPeticionDedalo(String token){
-        int status = 0;
-        try {
-            StringBuilder resultado = new StringBuilder();
-            URL url = new URL("https://dedalo.altia.es/dedalo/my/account.json");
-            HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
-            conexion.setRequestMethod("GET");
-            conexion.setRequestProperty("Content-Type", "application/json");
-            conexion.setRequestProperty("X-Redmine-API-Key", token);
-            conexion.setInstanceFollowRedirects(false);
-            BufferedReader rd = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
-            String linea;
-            while ((linea = rd.readLine()) != null) {
-                resultado.append(linea);
-            }
-            rd.close();
-            status = conexion.getResponseCode();
-            log.info("Info: "+resultado.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return status;
-    }
 
     /**
      * Crea un CV y llama a dedalo
      * @param candidatoVO
-     * @return "OK" o Error:404 en función de si el token es valido o no en Dédalo.
+     * @return "OK" si en el header <Authorization> se provee un token válido de dédalo, Error 401 en caso contrario.
      */
     @PostMapping("/candidatura")
-    public String SaveDedalo(@RequestBody CandidatoVO candidatoVO, @RequestHeader ("X-Redmine-API-Key") String token) throws JRException, FileNotFoundException {
+    public String SaveDedalo(@RequestBody CandidatoVO candidatoVO) throws JRException, FileNotFoundException {
         log.info("request body recibido en hebra {}",Thread.currentThread().getName());
-        int status = generarPeticionDedalo(token);
-        if(status==STATUS_CODE_OK){
-            candidatoService.saveCandidato(candidatoVO);
-            Mono<Resource> report = reportService.exportReport(candidatoVO.getEmail(),candidatoVO.getSitioWeb());
-            return "OK";
-        }
-        else{
-            log.info("No tienes permisos!");
-            throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "Token not found."
-            );
-        }
+
+        candidatoService.saveCandidato(candidatoVO);
+        Mono<Resource> report = reportService.exportReport(candidatoVO.getEmail(),candidatoVO.getSitioWeb());
+        return "OK";
     }
-
-
 
     /**
      * Crea un CV y lo almacena
@@ -124,14 +77,16 @@ public class CandidatoController {
         return "Almacenado correcto";
     }
 
+
     /**
      * Busca y devuelve todos los candidatos
      * @return El/los CandidatoVO(Flux)
      */
-    @GetMapping("")
+    @GetMapping("/all")
     public Flux<CandidatoVO> findAll(){
         return candidatoService.findAll();
     }
+
     /**
      *
      * @param email

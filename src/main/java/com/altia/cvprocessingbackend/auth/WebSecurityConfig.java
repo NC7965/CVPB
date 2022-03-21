@@ -38,12 +38,12 @@ public class WebSecurityConfig {
                 .csrf().disable()
                 .formLogin().disable()
                 .httpBasic().disable()
-                .authenticationManager(authenticationManager)
+                //.authenticationManager(authenticationManager)
                 .securityContextRepository(securityContextRepository)
                 .authorizeExchange()
                 .pathMatchers(HttpMethod.OPTIONS).permitAll()
-                .pathMatchers("/candidatos/candidatura", "/candidatos/all").authenticated()
-                .pathMatchers( "/swagger-ui.html", "/webjars/**", "/v3/api-docs/**","/candidatos","/candidatos/report").permitAll()
+                .pathMatchers("/candidatos/candidatura").authenticated()
+                .pathMatchers( "/swagger-ui.html", "/webjars/**", "/v3/api-docs/**","/candidatos","/candidatos/report", "/candidatos/all").permitAll()
                 .and().build();
     }
 }

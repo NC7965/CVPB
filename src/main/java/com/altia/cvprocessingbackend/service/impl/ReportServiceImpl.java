@@ -66,7 +66,6 @@ public class ReportServiceImpl implements ReportService {
           } catch (JRException e) {
             e.printStackTrace();
           }
-
           return result;
         }
 

@@ -62,6 +62,7 @@ public class CandidatoController {
 
         candidatoService.saveCandidato(candidatoVO);
         Mono<Resource> report = reportService.exportReport(candidatoVO.getEmail(),candidatoVO.getSitioWeb());
+
         return "OK";
     }
 
@@ -76,7 +77,6 @@ public class CandidatoController {
         candidatoService.saveCandidato(candidatoVO);
         return "Almacenado correcto";
     }
-
 
     /**
      * Busca y devuelve todos los candidatos

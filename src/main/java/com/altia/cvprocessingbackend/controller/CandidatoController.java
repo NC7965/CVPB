@@ -101,7 +101,7 @@ public class CandidatoController {
     @ResponseBody
     public Mono<Resource> exportReport (@RequestParam String email, @RequestParam String platform, ServerHttpResponse response) throws JRException, FileNotFoundException, JRException {
 
-        response.getHeaders().add("Content-Disposition",String.format("attachment; filename=%s.pdf",email));
+        response.getHeaders().add("Content-Disposition",String.format("attachment; filename=%s.docx",email));
         log.info("request report recibido en hebra {}",Thread.currentThread().getName());
         return reportService.exportReport( email,platform);
     }

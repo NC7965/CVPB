@@ -62,8 +62,7 @@ public class CandidatoController {
 
         candidatoService.saveCandidato(candidatoVO);
         Mono<Resource> report = reportService.exportReport(candidatoVO.getEmail(),candidatoVO.getSitioWeb());
-        Mono<String> token = candidatoService.uploadReport(report, authToken);
-        token.subscribe(result -> log.info(result));
+        candidatoService.uploadReport(report, authToken);
         return "OK";
     }
 

@@ -35,5 +35,5 @@ public interface CandidatoService {
    * @param report
    * @return token correspondiente al fichero enviado
    */
-  Mono<String> uploadReport(Mono<Resource> report, String authToken);
+  void uploadReport(Mono<Resource> report, String authToken);
 }

@@ -8,6 +8,7 @@ import com.altia.cvprocessingbackend.runner.Runner;
 import com.altia.cvprocessingbackend.service.CandidatoService;
 
 import org.bson.types.ObjectId;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
@@ -89,7 +91,7 @@ public class CandidatoServiceImpl implements CandidatoService {
    * @return token correspondiente al fichero enviado
    */
   @Override
-  public Mono<String> uploadReport(Mono<Resource> report, String authToken) {
+  public void uploadReport(Mono<Resource> report, String authToken) {
     WebClient client = WebClient.builder()
             .baseUrl("https://pre2-dedalo.altia.es/dedalonext")
             .build();
@@ -98,6 +100,7 @@ public class CandidatoServiceImpl implements CandidatoService {
             //.uri("/uploads.json?filename=file.docx")
             .header(HttpHeaders.CONTENT_TYPE, "application/octet-stream")
             .header("X-Redmine-API-Key", authToken)
+            //.body(Mono.just(report),Resource.class)
             .retrieve()
             .onStatus(HttpStatus::is3xxRedirection, clientResponse -> {
               logger.error("Error endpoint with status code {}",  clientResponse.statusCode());
@@ -107,10 +110,49 @@ public class CandidatoServiceImpl implements CandidatoService {
               logger.error("Error endpoint with status code {}",  clientResponse.statusCode());
               throw new AuthenticationServiceException("Unsuported Exception "+ authToken);
             }).bodyToMono(String.class);
-    return response.map(s -> {
+
+    response.map(s -> {
       JSONObject json = new JSONObject(s);
       return json.getJSONObject("upload").getString("token");
-    });
+    }).subscribe( result -> {
+              logger.info(result);
+              JSONObject jsonbody = new JSONObject();
+              JSONObject obj = new JSONObject();
+              JSONObject uploads = new JSONObject();
+              JSONArray uploadarray = new JSONArray();
+
+              obj.put("project_id", "3484");
+              obj.put("subject", "Prueba");
+              uploads.put("token", result);
+              uploads.put("filename", "fichero.docx");
+              uploads.put("content_type", "application/octet");
+              uploadarray.put(uploads);
+              obj.put("uploads", uploadarray);
+              jsonbody.put("issue",obj);
+
+              logger.info("Jsonbody", jsonbody.toString());
+              Mono<String> res = client.post()
+                      .uri("/issues.json")
+                      .header(HttpHeaders.CONTENT_TYPE, String.valueOf(MediaType.APPLICATION_JSON))
+                      .header("X-Redmine-API-Key", authToken)
+                      .body(BodyInserters.fromValue(jsonbody))
+                      .retrieve()
+                      .onStatus(HttpStatus::is3xxRedirection, clientResponse -> {
+                        logger.error("Error endpoint with status code {}",  clientResponse.statusCode());
+                        throw new BadCredentialsException("User token not valid "+ authToken);
+                      })
+                      .onStatus(HttpStatus::isError, clientResponse -> {
+                        logger.error("Error endpoint with status code {}",  clientResponse.statusCode());
+                        throw new AuthenticationServiceException("Unsuported Exception "+ authToken);
+                      }).bodyToMono(String.class);
+              res.subscribe(
+                      resp -> logger.info(resp)
+              );
+            }
+
+
+    );
+
   }
 
 }

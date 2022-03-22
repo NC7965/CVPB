@@ -2,6 +2,7 @@ package com.altia.cvprocessingbackend.service;
 
 import com.altia.cvprocessingbackend.domain.CandidatoVO;
 import com.altia.cvprocessingbackend.persistence.model.Candidato;
+import org.springframework.core.io.Resource;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -28,4 +29,11 @@ public interface CandidatoService {
    * @return Los Candidatos(Flux)
    */
   Flux<CandidatoVO> findAll();
+
+  /**
+   * Envia el reporte a Dedalo y obtiene un token
+   * @param report
+   * @return token correspondiente al fichero enviado
+   */
+  Mono<String> uploadReport(Mono<Resource> report, String authToken);
 }

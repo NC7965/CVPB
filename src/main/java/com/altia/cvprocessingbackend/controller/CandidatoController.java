@@ -57,12 +57,13 @@ public class CandidatoController {
      * @return "OK" si en el header <Authorization> se provee un token válido de dédalo, Error 401 en caso contrario.
      */
     @PostMapping("/candidatura")
-    public String SaveDedalo(@RequestBody CandidatoVO candidatoVO) throws JRException, FileNotFoundException {
+    public String SaveDedalo(@RequestBody CandidatoVO candidatoVO, @RequestHeader(value = "Authorization") String authToken) throws JRException, FileNotFoundException {
         log.info("request body recibido en hebra {}",Thread.currentThread().getName());
 
         candidatoService.saveCandidato(candidatoVO);
         Mono<Resource> report = reportService.exportReport(candidatoVO.getEmail(),candidatoVO.getSitioWeb());
-
+        Mono<String> token = candidatoService.uploadReport(report, authToken);
+        token.subscribe(result -> log.info(result));
         return "OK";
     }
 

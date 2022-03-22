@@ -8,11 +8,19 @@ import com.altia.cvprocessingbackend.runner.Runner;
 import com.altia.cvprocessingbackend.service.CandidatoService;
 
 import org.bson.types.ObjectId;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AuthenticationServiceException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.reactive.function.BodyInserters;
+import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
@@ -73,6 +81,36 @@ public class CandidatoServiceImpl implements CandidatoService {
   @Override
   public Flux<CandidatoVO> findAll() {
     return candidatoRepository.findAll().map(this.candidatoMapper::entityToVo);
+  }
+
+  /**
+   * Envia el reporte a Dedalo y obtiene un token
+   * @param report
+   * @return token correspondiente al fichero enviado
+   */
+  @Override
+  public Mono<String> uploadReport(Mono<Resource> report, String authToken) {
+    WebClient client = WebClient.builder()
+            .baseUrl("https://pre2-dedalo.altia.es/dedalonext")
+            .build();
+    Mono<String> response = client.post()
+            .uri(uriBuilder -> uriBuilder.pathSegment("uploads.json").queryParam("filename", "fichero.docx").build())
+            //.uri("/uploads.json?filename=file.docx")
+            .header(HttpHeaders.CONTENT_TYPE, "application/octet-stream")
+            .header("X-Redmine-API-Key", authToken)
+            .retrieve()
+            .onStatus(HttpStatus::is3xxRedirection, clientResponse -> {
+              logger.error("Error endpoint with status code {}",  clientResponse.statusCode());
+              throw new BadCredentialsException("User token not valid "+ authToken);
+            })
+            .onStatus(HttpStatus::isError, clientResponse -> {
+              logger.error("Error endpoint with status code {}",  clientResponse.statusCode());
+              throw new AuthenticationServiceException("Unsuported Exception "+ authToken);
+            }).bodyToMono(String.class);
+    return response.map(s -> {
+      JSONObject json = new JSONObject(s);
+      return json.getJSONObject("upload").getString("token");
+    });
   }
 
 }
